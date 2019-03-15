@@ -176,7 +176,10 @@ def gameWonAnimation(board):
 
 def hasWon(revealedBoxes):
     ''' Returns True if all the boxes have been revealed, otherwise False '''
-    pass
+    for i in revealedBoxes:
+        if False in i:
+            return False
+    return True
 
 if __name__ == '__main__':
     main()
