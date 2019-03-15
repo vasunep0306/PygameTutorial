@@ -64,7 +64,10 @@ def main():
 
 def generateRevealedBoxesData(val):
     '''Generate the revealed boxes data'''
-    pass
+    revealedBoxes = []
+    for i in range(BOARDWIDTH):
+        revealedBoxes.append([val]*BOARDHEIGHT)
+    return revealedBoxes
 
 def getRandomizedBoard():
     ''' Get a list of every possible shape in every possible color'''
