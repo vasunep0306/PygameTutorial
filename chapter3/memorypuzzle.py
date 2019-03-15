@@ -164,7 +164,8 @@ def drawBoard(board, revealed):
 
 def drawHighlightBox(boxx, boxy):
     ''' draws the highlighted box '''
-    pass
+    left, top = leftTopCoordsOfBox(boxx, boxy)
+    pygame.draw.rect(DISPLAYSURF, HIGHLIGHTCOLOR, (left - 5, top - 5, BOXSIZE + 10, BOXSIZE + 10), 4)
     
 def startGameAnimation(board):
     ''' Randomly reveal the boxes 8 at a time '''
