@@ -99,7 +99,9 @@ def splitIntoGroupsOf(groupSize, theList):
 
 def leftTopCoordsOfBox(boxx, boxy):
     '''Convert board coordinates to pixel coordinates'''
-    pass
+    left = boxx * (BOXSIZE + GAPSIZE) + XMARGIN
+    top = boxy * (BOXSIZE + GAPSIZE) + YMARGIN
+    return (left, top)
 
 
 def getBoxAtPixel(x, y):
