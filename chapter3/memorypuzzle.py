@@ -151,7 +151,12 @@ def coverBoxesAnimation(board, boxesToCover):
 
 def drawBoard(board, revealed):
     ''' draw all of the boxes in their covered or revealed state '''
-    pass
+    for boxx in range(BOARDWIDTH):
+        for boxy in range(BOARDHEIGHT):
+            left, top = leftTopCoordsOfBox(boxx, boxy)
+            if not revealed[boxx][boxy]:
+                # Draw a covered box.
+                pygame.draw.rect(DISPLAYSURF, BOXCOLOR, (left,top,BOXSIZE,BOXSIZE))
 
 
 def drawHighlightBox(boxx, boxy):
