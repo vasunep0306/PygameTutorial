@@ -157,6 +157,9 @@ def drawBoard(board, revealed):
             if not revealed[boxx][boxy]:
                 # Draw a covered box.
                 pygame.draw.rect(DISPLAYSURF, BOXCOLOR, (left,top,BOXSIZE,BOXSIZE))
+            else:
+                shape, color = getShapeAndColor(board, boxx, boxy)
+                drawIcon(shape, color, boxx, boxy)
 
 
 def drawHighlightBox(boxx, boxy):
