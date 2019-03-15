@@ -106,7 +106,14 @@ def leftTopCoordsOfBox(boxx, boxy):
 
 def getBoxAtPixel(x, y):
     ''' Get the box at the pixel with the given x,y coordinates '''
-    pass
+    for boxx in range(BOARDWIDTH):
+        for boxy in range(BOARDHEIGHT):
+            left,top = leftTopCoordsOfBox(boxx,boxy)
+            boxRect = pygame.Rect(left,top,BOXSIZE,BOXSIZE)
+            if boxRect.collidepoint(x,y):
+                return (boxx, boxy)
+    return (None, None)
+    
 
 def drawIcon(shape, color, boxx, boxy):
     '''draw the icon with the given shape, color and box coordinates'''
