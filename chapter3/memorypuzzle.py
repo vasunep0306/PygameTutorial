@@ -124,7 +124,7 @@ def drawIcon(shape, color, boxx, boxy):
 
 def getShapeAndColor(board, boxx, boxy):
     ''' shape value for x, y spot is stored in board[x][y][0] '''
-    pass
+    return board[boxx][boxy][0], board[boxx][boxy][1]
 
 def drawBoxCovers(board,boxes,coverage):
     ''' Draw boxes being covered/revealed. Boxes is a list of two item lists, which have the x & y spot of the box'''
