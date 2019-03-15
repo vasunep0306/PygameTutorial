@@ -92,7 +92,10 @@ def getRandomizedBoard():
 
 def splitIntoGroupsOf(groupSize, theList):
     '''Splits a list into a list of lists, where the inner lists have the mosst groupSize number of items'''
-    pass
+    result = []
+    for i in range(0, len(theList), groupSize):
+        result.append(theList[i:i + groupSize])
+    return result
 
 def leftTopCoordsOfBox(boxx, boxy):
     '''Convert board coordinates to pixel coordinates'''
