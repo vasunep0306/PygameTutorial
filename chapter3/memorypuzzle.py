@@ -145,7 +145,8 @@ def revealBoxesAnimation(board, boxesToReveal):
 
 def coverBoxesAnimation(board, boxesToCover):
     ''' Do the box cover animation '''
-    pass
+    for coverage in range(0, BOXSIZE + REVEALSPEED, REVEALSPEED):
+        drawBoxCovers(board, boxesToCover, coverage)
 
 
 def drawBoard(board, revealed):
