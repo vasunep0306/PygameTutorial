@@ -94,7 +94,7 @@ def getRandomizedBoard():
 
 
 def splitIntoGroupsOf(groupSize, theList):
-    '''Splits a list into a list of lists, where the inner lists have the mosst groupSize number of items'''
+    '''Splits a list into a list of lists, where the inner lists have the most groupSize number of items'''
     result = []
     for i in range(0, len(theList), groupSize):
         result.append(theList[i:i + groupSize])
@@ -168,11 +168,31 @@ def drawHighlightBox(boxx, boxy):
     
 def startGameAnimation(board):
     ''' Randomly reveal the boxes 8 at a time '''
-    pass
+    coveredBoxes = generateRevealedBoxesData(False)
+    boxes = []
+    for x in range(BOARDWIDTH):
+        for y in range(BOARDHEIGHT):
+            boxes.append((x,y))
+    random.shuffle(boxes)
+    boxGroups = splitIntoGroupsOf(8, boxes)
+    
+    drawBoard(board, coveredBoxes)
+    for boxGroup in boxGroups:
+        revealBoxesAnimation(board, boxGroup)
+        coverBoxesAnimation(board, boxGroup)
 
 def gameWonAnimation(board):
     ''' flash the background color when the player has won '''
-    pass
+    coveredBoxes = generateRevealedBoxesData(True)
+    color1 = LIGHTBGCOLOR
+    color2 = BGCOLOR
+    
+    for i in range(13):
+        color1, color2 = color2, color1 # swap colors
+        DISPLAYSURF.fill(color1)
+        drawBoard(board, coveredBoxes)
+        pygame.display.update()
+        pygame.time.wait(300)
 
 def hasWon(revealedBoxes):
     ''' Returns True if all the boxes have been revealed, otherwise False '''
